@@ -50,3 +50,22 @@ Post.create([
 - `rails db:seed`
 
 ## Create first GraphQL Type
+- `rails g graphql:object Post content:String title:String id:ID`
+
+## Add fields to root query
+- to add this type to the schema and expose it to the graph, we need to define a new field on the root query
+```rb
+# app/graphql/types/query_type.rb
+# add the following fields
+
+field :posts, Types::PostType.to_list_type do
+  description "A list of all posts"
+  resolve ->(obj, args, context) { Post.all }
+end
+
+field :post, Types::PostType do
+  description "A single post by ID"
+  argument :id, types.ID
+  resolve ->(obj, args, context) { Post.find_by(id: args[:id]) }
+end
+```
