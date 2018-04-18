@@ -37,7 +37,7 @@ export default class BlogContainer extends Component {
         <h1>Blogger</h1>
         <br/>
 
-        <Form />
+        <Form getAllPosts={this.getAllPosts} />
         <br/>
 
         {this.state.posts.map((post, index) => (

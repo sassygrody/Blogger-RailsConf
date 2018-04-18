@@ -12,6 +12,32 @@ export default class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+
+    fetch('/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        query: `
+          mutation {
+            createPost(input: {
+              title: "${this.state.title}"
+              content: "${this.state.content}"
+            }) {
+              clientMutationId
+            }
+          }
+        `
+      })
+    }).then(response => {
+      // get the response back and return it as json
+      console.log(response)
+      return response.json()
+    }).then(response => {
+      // set the response somewhere accessibile to the component
+      console.log(response.data)
+      this.setState({title: '', content: ''})
+      this.props.getAllPosts()
+    })
   }
 
   render () {

@@ -166,6 +166,18 @@ Hurrah! Rending a list of posts.
 - Generate first mutation
   `rails g graphql:mutation create_post`
 
+- Graphiql
+```js
+mutation {
+  createPost(input: {
+    title: "mutation from graphql"
+    content: "hope it works"
+  }) {
+    clientMutationId
+  }
+}
+```
+
 - complete the fetch mutation
 - pass the getAllPosts function as a prop
 - Post.all.order(created_at: :desc)
