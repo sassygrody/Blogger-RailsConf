@@ -7,6 +7,10 @@ export default class PostRow extends Component {
       <div className='post-row'>
         <h2>{this.props.post.title}</h2>
 
+        <a>Edit</a>
+
+        <span className='spacer'> | </span>
+
         <DeleteLink
           postId={this.props.post.id}
           getAllPosts={this.props.getAllPosts}
