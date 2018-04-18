@@ -182,3 +182,7 @@ mutation {
 - pass the getAllPosts function as a prop
 - Post.all.order(created_at: :desc)
 - clear the state
+
+
+## Delete a post via a link
+- add delete link file
