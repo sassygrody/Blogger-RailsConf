@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Form from './Form'
 
 export default class BlogContainer extends Component {
   state = {
@@ -35,6 +36,10 @@ export default class BlogContainer extends Component {
       <div>
         <h1>Blogger</h1>
         <br/>
+
+        <Form />
+        <br/>
+
         {this.state.posts.map((post, index) => (
           <div className='post-row' key={index}>
             <h2>{post.title}</h2>
