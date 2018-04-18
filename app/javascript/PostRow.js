@@ -32,7 +32,11 @@ export default class PostRow extends Component {
           </div>
         }
         {this.state.editMode &&
-          <Form post={this.props.post} />
+          <Form
+            post={this.props.post}
+            getAllPosts={this.props.getAllPosts}
+            toggleEditMode={this.toggleEditMode}
+          />
         }
       </div>
     )

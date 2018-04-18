@@ -26,9 +26,10 @@ export default class Form extends Component {
       body: JSON.stringify({
         query: `
           mutation {
-            createPost(input: {
+            upsertPost(input: {
               title: "${this.state.title}"
               content: "${this.state.content}"
+              id: "${this.state.id}"
             }) {
               clientMutationId
             }
@@ -44,6 +45,7 @@ export default class Form extends Component {
       console.log(response.data)
       this.setState({title: '', content: ''})
       this.props.getAllPosts()
+      if (this.props.toggleEditMode) this.props.toggleEditMode()
     })
   }
 
