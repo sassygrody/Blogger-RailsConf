@@ -33,7 +33,7 @@ Now localhost:3000/ will be our only URL to view blog content
 - add to Gemfile (and bundle): `gem 'graphql'`
 - run installation command: `rails g graphql:install`
   - *this sets up the route, creates a controller, sets up graphql schema with a base query and mutation, sets up graphiql route*
-- visit localhost:3000/graphiql to ensure everything is set up correctly. If you get a routing error, restart the server.
+- restart server, visit localhost:3000/graphiql to ensure everything is set up correctly.
 
 Checkout the [GraphQL docs](http://graphql-ruby.org/) for more information!
 
