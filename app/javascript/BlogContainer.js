@@ -21,6 +21,7 @@ export default class BlogContainer extends Component {
             posts {
               title
               content
+              id
             }
           }
         `
@@ -42,7 +43,11 @@ export default class BlogContainer extends Component {
         <br/>
 
         {this.state.posts.map((post, index) => (
-          <PostRow post={post} key={index}/>
+          <PostRow
+            post={post}
+            key={index}
+            getAllPosts={this.getAllPosts}
+          />
         ))}
       </div>
     )
