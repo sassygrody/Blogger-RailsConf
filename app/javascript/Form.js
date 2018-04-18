@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 
 export default class Form extends Component {
-  state = {
-    title: '',
-    content: ''
+  constructor(props) {
+    super(props)
+
+    const post = props.post || {}
+
+    this.state = {
+      title: post.title || '',
+      content: post.content || '',
+      id: post.id || ''
+    }
   }
 
   handleInputChange = (event) => {
