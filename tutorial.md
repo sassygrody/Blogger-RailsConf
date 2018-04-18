@@ -154,3 +154,19 @@ export default class BlogContainer extends Component {
 }
 ```
 
+Hurrah! Rending a list of posts.
+
+## Create a post in a form
+- added a form, almost identical to an example form on the React docs
+- good example of JSX looking like HTML but acting like javascript
+
+- display form
+- start making the fetch function... but what do we query for?
+
+- Generate first mutation
+  `rails g graphql:mutation create_post`
+
+- complete the fetch mutation
+- pass the getAllPosts function as a prop
+- Post.all.order(created_at: :desc)
+- clear the state
