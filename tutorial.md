@@ -69,3 +69,88 @@ field :post, Types::PostType do
   resolve ->(obj, args, context) { Post.find_by(id: args[:id]) }
 end
 ```
+
+## Render React
+we want to see that on our page!
+first things first, let's render react into our Rails view
+- i already set up a single Rails view
+- webpacker installed a root react page for us
+- render hello_react in index.html.erb
+  - this is rendering a root DOM node. I'm going to use this as an entrance point for all of my React code!
+- touch app/javascript/BlogContainer.js
+- import and render BlogContainer into hello_react.jsx
+
+```js
+// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,
+// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
+// of the page.
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+import BlogContainer from 'BlogContainer'
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(
+    <BlogContainer />,
+    document.body.appendChild(document.createElement('div')),
+  )
+})
+```
+
+HURRAH! Rendering React!
+
+## Display list of Posts from database
+- make a function to call fetch with the GraphQL query in the body
+- set the response data in component's state
+- call function before the component loads
+```js
+import React, { Component } from 'react'
+
+export default class BlogContainer extends Component {
+  state = {
+    posts: []
+  }
+
+  componentDidMount() {
+    this.getAllPosts()
+  }
+
+  getAllPosts = () => {
+    fetch('/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        query: `
+          query {
+            posts {
+              title
+              content
+            }
+          }
+        `
+      })
+    }).then(response => {
+      return response.json()
+    }).then(response => {
+      this.setState({posts: response.data.posts})
+    })
+  }
+
+  render () {
+    return (
+      <div>
+        <h1>Blogger</h1>
+        <br/>
+        {this.state.posts.map((post, index) => (
+          <div className='post-row' key={index}>
+            <h2>{post.title}</h2>
+            <p>{post.content}</p>
+            <br/>
+          </div>
+        ))}
+      </div>
+    )
+  }
+}
+```
+
