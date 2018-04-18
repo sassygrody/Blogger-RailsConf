@@ -10,9 +10,13 @@ export default class Form extends Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
   render () {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
           type='text'
           name='title'
