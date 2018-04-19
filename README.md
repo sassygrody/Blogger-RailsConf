@@ -1,6 +1,6 @@
 # Build a Blog in 15 (More Like 30) Minutes: Webpacker Edition
 
-### RailsConf CRUD app demo. Full tutorial coming soon!
+### RailsConf CRUD app demo. Full tutorial coming soon! But for now: [tutorial](https://github.com/sassygrody/Blogger-RailsConf/blob/master/tutorial.md)
 
 -----------------------------
 
