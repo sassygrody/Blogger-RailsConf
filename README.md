@@ -8,14 +8,15 @@
 
 There branchs for each step of CRUD--they build upon each other
 
-- r-of-crud (space to get started) === master
+- r-of-crud-started (space to get started) === master
 - r-of-crud-completed (implemented)
-- c-of-crud (space to get started (has a form, no mutation))
+- c-of-crud-started (space to get started (has a form, no mutation))
 - c-of-crud-completed (implemented)
-- d-of-crud (space to get started, has a PostRow, delete link, no mutation)
+- d-of-crud-started (space to get started, has a PostRow, delete link, no mutation)
 - d-of-crud-completed (implemented)
-- u-of-crud (space to get started, has an edit link that toggles between edit mode, no mutation)
+- u-of-crud-started (space to get started, has an edit link that toggles between edit mode, no mutation)
 - u-of-crud-completed (implemented)
+- crud-complete (all done!)
 
 ## Dependencies
 ensure you have rails 5+, ruby 2.4+, yarn
