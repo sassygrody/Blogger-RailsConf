@@ -1,24 +1,25 @@
-# README
+# Build a Blog in 15 (More Like 30) Minutes: Webpacker Edition
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### RailsConf CRUD app demo. Full tutorial coming soon!
 
-Things you may want to cover:
+-----------------------------
 
-* Ruby version
+#### Branch flow
 
-* System dependencies
+There branchs for each step of CRUD--they build upon each other
 
-* Configuration
+- r-of-crud (space to get started) === master
+- r-of-crud-completed (implemented)
+- c-of-crud (space to get started (has a form, no mutation))
+- c-of-crud-completed (implemented)
+- d-of-crud (space to get started, has a PostRow, delete link, no mutation)
+- d-of-crud-completed (implemented)
+- u-of-crud (space to get started, has an edit link that toggles between edit mode, no mutation)
+- u-of-crud-completed (implemented)
 
-* Database creation
+## Dependencies
+ensure you have rails 5+, ruby 2.4+, yarn
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `$ rails -v` || `$ gem install rails -v 5.2`
+- `$ rbenv versions` || `$ rbenv local 2.4.1`
+- `$ yarn -v` || `$ brew install yarn`
