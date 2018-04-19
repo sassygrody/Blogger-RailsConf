@@ -166,7 +166,57 @@ Hurrah! Rending a list of posts.
 - Generate first mutation
   `rails g graphql:mutation create_post`
 
+- Graphiql
+```js
+mutation {
+  createPost(input: {
+    title: "mutation from graphql"
+    content: "hope it works"
+  }) {
+    clientMutationId
+  }
+}
+```
+
 - complete the fetch mutation
 - pass the getAllPosts function as a prop
 - Post.all.order(created_at: :desc)
 - clear the state
+
+
+## Delete a post via a link
+- add delete link
+- add delete mutation `rails g graphql:mutation delete_post`
+
+```rb
+# delete_post.rb
+Mutations::DeletePost = GraphQL::Relay::Mutation.define do
+  name "DeletePost"
+  # TODO: define return fields
+  return_field :message, types.String
+
+  # TODO: define arguments
+  input_field :id, !types.ID
+
+  resolve ->(obj, args, ctx) {
+    # TODO: define resolve function
+    post = Post.find_by(id: args[:id])
+    post.destroy!
+
+    { message: "Post was deleted" }
+  }
+end
+
+```
+
+- visit /graphiql
+```js
+mutation {
+  deletePost(input: {
+    id: 1
+  }) {
+    clientMutationId
+    message
+  }
+}
+```
