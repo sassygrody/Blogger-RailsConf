@@ -24,3 +24,10 @@ ensure you have rails 5+, ruby 2.4+, yarn
 - `$ rails -v` || `$ gem install rails -v 5.2`
 - `$ rbenv versions` || `$ rbenv local 2.4.1`
 - `$ yarn -v` || `$ brew install yarn`
+
+## Start servers
+- `$ rails server`
+- `$ ./bin/webpack-dev-server` || `$ yarn start`
+
+## Seed data
+-
