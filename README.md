@@ -30,4 +30,6 @@ ensure you have rails 5+, ruby 2.4+, yarn
 - `$ ./bin/webpack-dev-server` || `$ yarn start`
 
 ## Seed data
--
+- `$ rails db:seed`
+
+## Have fun!
